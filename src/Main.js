@@ -1,5 +1,6 @@
 import MP3Player from "./MP3Player";
 import MP4Player from "./MP4Player";
+import FlashPlayer from "./FlashPlayer";
 
 function parseQuery() {
     let args = {};
@@ -32,6 +33,8 @@ do {
         new MP3Player(url);
     } else if (lowerUrl.endsWith(".mp4")) {
         new MP4Player(url);
+    } else if (lowerUrl.endsWith(".swf")) {
+        new FlashPlayer(url);
     }
 } while (false);
 

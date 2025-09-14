@@ -1,0 +1,13 @@
+{
+  "scripts": {
+    "release_build": "webpack --mode=production",
+    "debug_build": "webpack --mode=development",
+    "serve": "webpack serve --mode=development"
+  },
+  "devDependencies": {
+    "copy-webpack-plugin": "^13.0.1",
+    "webpack": "^5.101.3",
+    "webpack-cli": "^6.0.1",
+    "webpack-dev-server": "^5.2.2"
+  }
+}

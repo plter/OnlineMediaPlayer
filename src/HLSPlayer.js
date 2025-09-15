@@ -1,10 +1,13 @@
+/*
+@author https://yunp.top
+ */
 export default class HLSPlayer {
     constructor(url) {
         this.url = url;
 
         let s = document.createElement("script");
         s.onload = this.hlsJsLoaded;
-        s.src = "hls/hls.js";
+        s.src = "lib/hls/hls.js";
         document.body.appendChild(s);
     }
 

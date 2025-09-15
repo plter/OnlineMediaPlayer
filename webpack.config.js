@@ -9,7 +9,7 @@ module.exports = function (env, options) {
 
         plugins: [
             new CopyPlugin({
-                patterns: ["public"]
+                patterns: [{from: "public/lib", to: "lib"}, "public/index.html"]
             })
         ],
     }

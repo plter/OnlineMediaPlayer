@@ -1,7 +1,12 @@
+/*
+@author https://yunp.top
+ */
+
 import MP3Player from "./MP3Player";
 import MP4Player from "./MP4Player";
 import FlashPlayer from "./FlashPlayer";
 import HLSPlayer from "./HLSPlayer";
+import FlvPlayer from "./FlvPlayer";
 
 function parseQuery() {
     let args = {};
@@ -38,6 +43,8 @@ do {
         new FlashPlayer(url);
     } else if (lowerUrl.endsWith(".m3u8")) {
         new HLSPlayer(url);
+    } else if (lowerUrl.endsWith(".flv")) {
+        new FlvPlayer(url);
     } else {
         alert("Unsupported");
     }

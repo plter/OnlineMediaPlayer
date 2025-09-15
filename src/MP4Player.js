@@ -1,3 +1,7 @@
+/*
+@author https://yunp.top
+ */
+
 export default class MP4Player {
 
     constructor(url) {

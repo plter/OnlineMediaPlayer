@@ -1,6 +1,7 @@
 import MP3Player from "./MP3Player";
 import MP4Player from "./MP4Player";
 import FlashPlayer from "./FlashPlayer";
+import HLSPlayer from "./HLSPlayer";
 
 function parseQuery() {
     let args = {};
@@ -35,6 +36,10 @@ do {
         new MP4Player(url);
     } else if (lowerUrl.endsWith(".swf")) {
         new FlashPlayer(url);
+    } else if (lowerUrl.endsWith(".m3u8")) {
+        new HLSPlayer(url);
+    } else {
+        alert("Unsupported");
     }
 } while (false);
 

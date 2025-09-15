@@ -1,17 +1,18 @@
 /*
 @author https://yunp.top
  */
-export default class HLSPlayer {
-    constructor(url) {
-        this.url = url;
+import Player from "./Player";
 
-        let s = document.createElement("script");
-        s.onload = this.hlsJsLoaded;
-        s.src = "lib/hls/hls.js";
-        document.body.appendChild(s);
+export default class HLSPlayer extends Player {
+    constructor(url) {
+        super(url);
     }
 
-    hlsJsLoaded = () => {
+    dependencies() {
+        return ["lib/hls/hls.js"];
+    }
+
+    play() {
         let player = document.createElement("video");
         player.className = "player";
         player.controls = true;

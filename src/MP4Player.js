@@ -2,16 +2,24 @@
 @author https://yunp.top
  */
 
-export default class MP4Player {
+import Player from "./Player";
+
+export default class MP4Player extends Player {
 
     constructor(url) {
-        this.url = url;
+        super(url);
+    }
 
+    dependencies() {
+        return undefined;
+    }
+
+    play() {
         let player = document.createElement("video");
         player.className = "player";
         player.controls = true;
         player.autoplay = false;
-        player.src = url;
+        player.src = this.url;
         document.body.appendChild(player);
     }
 }

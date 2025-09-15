@@ -2,17 +2,18 @@
 @author https://yunp.top
  */
 
-export default class FlvPlayer {
-    constructor(url) {
-        this.url = url;
+import Player from "./Player";
 
-        let s = document.createElement("script");
-        s.onload = this.flvjsLoaded;
-        s.src = "lib/flv/flv.min.js";
-        document.body.appendChild(s);
+export default class FlvPlayer extends Player {
+    constructor(url) {
+        super(url);
     }
 
-    flvjsLoaded = () => {
+    dependencies() {
+        return ["lib/flv/flv.min.js"];
+    }
+
+    play() {
         let player = document.createElement("video");
         player.className = "player";
         player.controls = true;
@@ -20,7 +21,7 @@ export default class FlvPlayer {
         player.src = this.url;
         document.body.appendChild(player);
 
-        var flvPlayer = flvjs.createPlayer({
+        let flvPlayer = flvjs.createPlayer({
             type: 'flv',
             url: this.url
         });

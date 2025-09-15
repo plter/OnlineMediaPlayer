@@ -1,17 +1,18 @@
 /*
 @author https://yunp.top
  */
-export default class FlashPlayer {
-    constructor(url) {
-        this.url = url;
+import Player from "./Player";
 
-        let s = document.createElement("script");
-        s.onload = this.ruffleLoaded;
-        s.src = "lib/ruffle/ruffle.js";
-        document.body.appendChild(s);
+export default class FlashPlayer extends Player {
+    constructor(url) {
+        super(url);
     }
 
-    ruffleLoaded = () => {
+    dependencies() {
+        return ["lib/ruffle/ruffle.js"];
+    }
+
+    play() {
         RufflePlayer.config = {
             fontSources: ["lib/alifonts/Alibaba-PuHuiTi-Regular.otf"],
             defaultFonts: {sans: ["Alibaba PuHuiTi"]},

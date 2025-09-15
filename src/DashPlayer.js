@@ -3,13 +3,13 @@
  */
 import Player from "./Player";
 
-export default class HLSPlayer extends Player {
+export default class DashPlayer extends Player {
     constructor(url) {
         super(url);
     }
 
     dependencies() {
-        return ["lib/hls/hls.min.js"];
+        return ["lib/dash/dash.all.min.js"];
     }
 
     play() {
@@ -20,8 +20,7 @@ export default class HLSPlayer extends Player {
         player.src = this.url;
         document.body.appendChild(player);
 
-        let hls = new Hls();
-        hls.loadSource(this.url);
-        hls.attachMedia(player);
+        var dash = dashjs.MediaPlayer().create();
+        dash.initialize(player, this.url, false);
     }
 }

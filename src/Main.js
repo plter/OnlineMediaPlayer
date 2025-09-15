@@ -7,6 +7,7 @@ import MP4Player from "./MP4Player";
 import FlashPlayer from "./FlashPlayer";
 import HLSPlayer from "./HLSPlayer";
 import FlvPlayer from "./FlvPlayer";
+import DashPlayer from "./DashPlayer";
 
 function parseQuery() {
     let args = {};
@@ -45,6 +46,8 @@ do {
         new HLSPlayer(url);
     } else if (lowerUrl.endsWith(".flv")) {
         new FlvPlayer(url);
+    } else if (lowerUrl.endsWith(".mpd")) {
+        new DashPlayer(url);
     } else {
         alert("Unsupported");
     }

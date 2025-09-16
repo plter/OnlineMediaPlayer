@@ -11,10 +11,20 @@ export default class Player {
         (async () => {
             let dep = this.dependencies();
 
-            if (dep) {
+            if (dep && dep.length) {
+                let loadingContainer = document.createElement("div");
+                loadingContainer.style.width = "100%";
+                loadingContainer.style.height = "100%";
+                loadingContainer.style.position = "fixed";
+                loadingContainer.style.overflow = "hidden";
+                document.body.appendChild(loadingContainer);
+                loadingContainer.innerHTML = "<div style='display: block;text-align: center;width: 100%;position: absolute;top: 48%'>Loading...</div>"
+
                 for (let su of dep) {
                     await this.loadScript(su);
                 }
+
+                loadingContainer.remove();
             }
 
             this.play();
